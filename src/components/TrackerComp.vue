@@ -215,6 +215,7 @@ export default {
         await init();
         let wrong = await claimDiv();
         if (!wrong) {
+          this.alert = false;
           await claimDiv();
         } else {
           this.alert = true;
