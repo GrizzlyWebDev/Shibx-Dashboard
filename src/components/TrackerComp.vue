@@ -2,6 +2,7 @@
   <v-container class="my-5">
     <v-row class="justify-center">
       <v-alert
+      class="alert"
       v-model="alert"
       color="#ff3c40"
       dark
@@ -217,6 +218,11 @@ export default {
           await claimDiv();
         } else {
           this.alert = true;
+          window.scrollTo({
+          top: 100,
+          left: 100,
+          behavior: 'smooth'
+        });
         }
     },
     row_classes(item) {
