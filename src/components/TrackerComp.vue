@@ -99,8 +99,7 @@
                   >{{ latestReward }}
                 </v-card-text>
                 <v-col>
-                  <v-btn v-if="!connected" @click="connect">Connect Wallet</v-btn>
-                  <v-btn v-if="connected" @click="claim">Claim Dividend</v-btn>
+                  <v-btn @click="claim">Claim Dividend</v-btn>
                 </v-col>
               </v-card>
          </v-col>
@@ -188,7 +187,6 @@ export default {
     transactionBalance: null,
     txs: [],
     resetTxs: false,
-    connected: false,
   }),
 
   mounted() {
@@ -200,14 +198,10 @@ export default {
     
   },
   methods: {
-    async connect() {
-      await init();
-      this.connected = true;
-    },
+    
     async claim() {
-      if(this.connected == true) {
+        await init();
         await claimDiv();
-      }
     },
     row_classes(item) {
       return item.type;
