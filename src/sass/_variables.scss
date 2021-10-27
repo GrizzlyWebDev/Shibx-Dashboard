@@ -1,0 +1,40 @@
+// Body
+$body-bg: #4d0aaf;
+$gradient: linear-gradient(to right, #83612a 55%, #b08744 100%);
+$font-size-root: 16px;
+
+
+
+$container-max-widths: (
+  "xs": 430px,
+  "md": 960px,
+  "lg": 1140px,
+  "xl": 1140px,
+);
+
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+$font-family: "Oswald", sans-serif !default;
+
+.v-application,
+.v-application .headline {
+  font-family: $font-family !important;
+}
+@media screen and (max-width:425px) {
+  .v-btn__content {
+    font-size: 12px !important;
+  }
+}
+.v-btn__content {
+  font-size: 16px;
+}
+
+h4,
+h3,
+h2, 
+p,
+.v-list-item__subtitle{
+  font-family: $font-family !important;
+  color: #ffffff;
+}
