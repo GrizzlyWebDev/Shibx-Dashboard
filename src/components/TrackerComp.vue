@@ -218,7 +218,7 @@ export default {
           await claimDiv();
         } else {
           this.alert = true;
-          window.scrollTo(0);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     },
     row_classes(item) {
