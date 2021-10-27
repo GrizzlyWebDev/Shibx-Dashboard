@@ -177,6 +177,9 @@ a:-webkit-any-link {
 .col-12 {
   z-index: 1 !important;
 }
+.v-alert:not(.v-sheet--tile) {
+  z-index: 1 !important;
+}
 .v-application .v-application--is-ltr .theme--light{
    background-color: #3e0791;
 }

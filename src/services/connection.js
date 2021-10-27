@@ -56,6 +56,8 @@ export async function claimDiv() {
     let contract = await new connection.eth.Contract(abiDiv, "0xE247f989fF0827eE5fb20EFC512cf8E71da4FA4a");
     return await contract.methods.claimDividend().send({from: accounts[0]});
   } else {
-    window.alert("Switch to Binance smart chain to claim");
+    return {
+      alert: true,
+    }
   }
 }

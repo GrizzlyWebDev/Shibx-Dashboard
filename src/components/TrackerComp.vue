@@ -1,6 +1,17 @@
 <template>
   <v-container class="my-5">
     <v-row class="justify-center">
+      <v-alert
+      v-model="alert"
+      color="#ff3c40"
+      dark
+      icon="mdi-alert-octagon"
+      border="left"
+      prominent
+      dismissible
+      >
+        Connect to Binance Smart Chain to claim dividend
+      </v-alert>
       <v-col
         cols="12"
         class="
@@ -187,6 +198,7 @@ export default {
     transactionBalance: null,
     txs: [],
     resetTxs: false,
+    alert: false,
   }),
 
   mounted() {
@@ -198,10 +210,14 @@ export default {
     
   },
   methods: {
-    
     async claim() {
         await init();
-        await claimDiv();
+        let wrong = await claimDiv();
+        if (!wrong) {
+          await claimDiv();
+        } else {
+          this.alert = true;
+        }
     },
     row_classes(item) {
       return item.type;
