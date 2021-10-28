@@ -2,8 +2,7 @@
   <v-container class="my-5">
     <v-row class="justify-center">
       <v-alert
-      class="alert"
-      v-model="alert"
+      v-if="alert"
       color="#ff3c40"
       dark
       icon="mdi-alert-octagon"
@@ -212,12 +211,10 @@ export default {
   },
   methods: {
     async claim() {
+      this.alert = false;
         await init();
         let wrong = await claimDiv();
-        if (!wrong) {
-          this.alert = false;
-          await claimDiv();
-        } else {
+        if(wrong) {
           this.alert = true;
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }

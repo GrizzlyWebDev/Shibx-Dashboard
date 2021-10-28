@@ -35,7 +35,6 @@ export async function init() {
   provider = await web3Modal.connect();
   connection = new Web3(provider);
   accounts = await connection.eth.getAccounts();
-  
 }
 
 export async function disconnect(){
@@ -54,10 +53,8 @@ export async function claimDiv() {
   chain = await connection.eth.getChainId();
   if(chain === 56) {
     let contract = await new connection.eth.Contract(abiDiv, "0xE247f989fF0827eE5fb20EFC512cf8E71da4FA4a");
-    return await contract.methods.claimDividend().send({from: accounts[0]});
+    await contract.methods.claimDividend().send({from: accounts[0]});
   } else {
-    return {
-      alert: true,
-    }
+    return {alert: true}
   }
 }
